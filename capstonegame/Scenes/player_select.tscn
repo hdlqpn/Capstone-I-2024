@@ -1,0 +1,169 @@
+[gd_scene load_steps=14 format=3 uid="uid://c3qvkbk61j2jy"]
+
+[ext_resource type="Texture2D" uid="uid://dlj423w7ibs5m" path="res://test_panel.png" id="1_wmr13"]
+[ext_resource type="Script" path="res://Scenes/player_1_char.gd" id="3_e6tay"]
+[ext_resource type="PackedScene" uid="uid://dwrv2txcm8s0p" path="res://Scenes/player_ids.tscn" id="3_he64l"]
+[ext_resource type="Texture2D" uid="uid://bn2y07vd0bh6n" path="res://characters/Player_1/RaddicusP1.png" id="4_fi41q"]
+[ext_resource type="Texture2D" uid="uid://bdyc6f0y55u06" path="res://characters/Player_4/RaddicusP4.png" id="4_lek1f"]
+[ext_resource type="Texture2D" uid="uid://dlyhbxe2ah83p" path="res://Assets/Arrow.png" id="4_pelf1"]
+[ext_resource type="Texture2D" uid="uid://keo5uwhriccm" path="res://characters/Player_3/RaddicusP3.png" id="5_5yk01"]
+[ext_resource type="Texture2D" uid="uid://dx18r28f1wlu7" path="res://characters/Player_2/RaddicusP2.png" id="7_18nsn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3ps0"]
+
+[sub_resource type="Theme" id="Theme_nveiw"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_6cjby"]
+
+[sub_resource type="Theme" id="Theme_rp6cy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3oy1a"]
+texture = ExtResource("1_wmr13")
+
+[node name="PlayerSelect" type="Node2D"]
+position = Vector2(155, -38)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_x3ps0")
+offset_left = -638.0
+offset_top = -306.0
+offset_right = 1688.0
+offset_bottom = 998.0
+theme = SubResource("Theme_nveiw")
+texture = SubResource("AnimatedTexture_6cjby")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(511, 347)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Panel" type="Panel" parent="Camera2D"]
+offset_left = -1094.0
+offset_top = -289.0
+offset_right = -594.0
+offset_bottom = 211.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = SubResource("Theme_rp6cy")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3oy1a")
+metadata/_edit_use_anchors_ = true
+
+[node name="Player_1_Char" type="TextureRect" parent="Camera2D/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -164.0
+offset_right = 135.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fi41q")
+stretch_mode = 3
+script = ExtResource("3_e6tay")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Camera2D/Panel"]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 185.0
+offset_right = 497.0
+offset_bottom = 342.0
+icon = ExtResource("4_pelf1")
+flat = true
+
+[node name="Button2" type="Button" parent="Camera2D/Panel"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 338.0
+offset_right = 249.0
+offset_bottom = 495.0
+rotation = 3.14159
+icon = ExtResource("4_pelf1")
+flat = true
+
+[node name="Panel2" type="Panel" parent="Camera2D"]
+offset_left = 541.0
+offset_top = -294.0
+offset_right = 1041.0
+offset_bottom = 206.0
+theme = SubResource("Theme_rp6cy")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3oy1a")
+metadata/_edit_use_anchors_ = true
+
+[node name="Player_4_Char" type="TextureRect" parent="Camera2D/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -164.0
+offset_right = 135.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lek1f")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel3" type="Panel" parent="Camera2D"]
+offset_left = -13.0
+offset_top = -293.0
+offset_right = 487.0
+offset_bottom = 207.0
+theme = SubResource("Theme_rp6cy")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3oy1a")
+metadata/_edit_use_anchors_ = true
+
+[node name="Player_3_Char" type="TextureRect" parent="Camera2D/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -164.0
+offset_right = 135.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_5yk01")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel4" type="Panel" parent="Camera2D"]
+offset_left = -555.0
+offset_top = -289.0
+offset_right = -55.0
+offset_bottom = 211.0
+theme = SubResource("Theme_rp6cy")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3oy1a")
+metadata/_edit_use_anchors_ = true
+
+[node name="Player_2_Char" type="TextureRect" parent="Camera2D/Panel4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -164.0
+offset_right = 135.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_18nsn")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Player_IDS" parent="." instance=ExtResource("3_he64l")]
+position = Vector2(-497, 395)
+
+[connection signal="pressed" from="Camera2D/Panel/Button" to="Camera2D/Panel/Player_1_Char" method="_on_button_pressed"]
