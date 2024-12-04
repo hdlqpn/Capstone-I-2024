@@ -1,0 +1,20 @@
+extends Area2D
+
+var p1_button_presses = 0
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_area_entered(area: Area2D) -> void:
+	var bag_1 = $Bag
+	if area.is_in_group("Player_1"):
+		bag_1.play("Hit")
+		p1_button_presses += 1
+		
+		
