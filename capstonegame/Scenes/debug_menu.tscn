@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1clh6f6upfhw"]
+
+[ext_resource type="Script" path="res://Scripts/debug_menu.gd" id="1_prbvg"]
+
+[node name="DebugMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchor_right = 0.347
+anchor_bottom = 0.617
+offset_right = 0.255981
+offset_bottom = 0.18396
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_prbvg")
+metadata/_edit_group_ = true
+
+[node name="DbPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DbBox" type="VBoxContainer" parent="DbPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DbTitle" type="Label" parent="DbPanel/DbBox"]
+layout_mode = 2
+text = "DEBUG"
+horizontal_alignment = 1
+
+[node name="DbCol" type="HBoxContainer" parent="DbPanel/DbBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DbCol1" type="VBoxContainer" parent="DbPanel/DbBox/DbCol"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Col3Label" type="Label" parent="DbPanel/DbBox/DbCol/DbCol1"]
+layout_mode = 2
+text = "player debug"
+horizontal_alignment = 1
+
+[node name="DbCol2" type="VBoxContainer" parent="DbPanel/DbBox/DbCol"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Col3Label" type="Label" parent="DbPanel/DbBox/DbCol/DbCol2"]
+layout_mode = 2
+text = "game state"
+horizontal_alignment = 1
+
+[node name="DbCol3" type="VBoxContainer" parent="DbPanel/DbBox/DbCol"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Col3Label" type="Label" parent="DbPanel/DbBox/DbCol/DbCol3"]
+layout_mode = 2
+text = "program"
+horizontal_alignment = 1
+
+[node name="EndButton" type="Button" parent="DbPanel/DbBox/DbCol/DbCol3"]
+layout_mode = 2
+text = "FORCE END"
+
+[connection signal="pressed" from="DbPanel/DbBox/DbCol/DbCol3/EndButton" to="." method="_on_button_pressed"]
