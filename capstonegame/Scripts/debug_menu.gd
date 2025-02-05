@@ -1,6 +1,10 @@
 extends Control
 
-# This node has the process mode set to ALWAYS
+''' This node has the process mode set to ALWAYS '''
+
+# Scene Loading
+var text_window_scene = load("res://Scenes/text_window.tscn")
+
 
 ''' ---------- DEFAULT FUNCTIONS ---------- '''
 
@@ -30,3 +34,10 @@ func pause():
 # Closes the game without any safeties
 func _on_button_pressed() -> void:
 	get_tree().quit()
+
+func _on_text_button_pressed() -> void:
+	var next_message_text = $DbPanel/DbBox/DbCol/DbCol3/TextContent.text
+	
+	var next_message = text_window_scene.instantiate()
+	next_message.update_text(next_message_text)
+	get_parent().add_child(next_message)
