@@ -1,5 +1,26 @@
 extends Node
 
+#TODO Bingo cards instanstiated, Blackout tracker (?), 
+
+
+#Waiting to find out if these need to be arrays or ints
+var p1_Inv
+var p2_Inv
+var p3_Inv
+var p4_Inv 
+
+# 1-4, Used to track player positions after a minigame
+#MAKE SURE TO CHANGE AT END OF GAME
+var p1_Place = 1
+var p2_Place = 2
+var p3_Place = 3
+var p4_Place = 4
+
+#Variables if we need to track where someone lands for some reason. Shouldn't need in the current state.
+#var p1_Space
+#var p2_Space
+#var p3_Space
+#var p4_Space
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
