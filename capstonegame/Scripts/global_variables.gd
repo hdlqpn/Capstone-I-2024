@@ -1,9 +1,14 @@
 extends Node
 
 #TODO Bingo cards instanstiated, Blackout tracker (?), 
+#TODO find out how to incorporate these into the game so you can use the other player models
+var p1_Model
+var p2_Model
+var p3_Model
+var p4_Model
 
 
-#Waiting to find out if these need to be arrays or ints
+#Waiting to find out if these need to be arrays or ints, could also be added to the players menus 
 var p1_Inv
 var p2_Inv
 var p3_Inv
