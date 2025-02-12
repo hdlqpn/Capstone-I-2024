@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://mhqt2i4frjg3"]
+
+[ext_resource type="Script" path="res://Scripts/audio_manager.gd" id="1_a35vl"]
+[ext_resource type="Script" path="res://Scripts/sound_effects.gd" id="2_nj5go"]
+[ext_resource type="Resource" uid="uid://bby0fqagak4eu" path="res://Assets/SFX/button.tres" id="3_py57w"]
+
+[node name="AudioGlobal" type="Node2D"]
+script = ExtResource("1_a35vl")
+sound_effect_array = Array[ExtResource("2_nj5go")]([ExtResource("3_py57w")])
