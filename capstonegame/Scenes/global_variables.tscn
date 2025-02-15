@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp6fodkkilif6"]
+[gd_scene load_steps=3 format=3 uid="uid://cp6fodkkilif6"]
 
 [ext_resource type="Script" path="res://Scripts/global_variables.gd" id="1_1edux"]
+[ext_resource type="PackedScene" uid="uid://b1clh6f6upfhw" path="res://Scenes/debug_menu.tscn" id="2_7fbg3"]
 
 [node name="Global_Variables" type="Node"]
 script = ExtResource("1_1edux")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 8
+
+[node name="DebugMenu" parent="CanvasLayer" instance=ExtResource("2_7fbg3")]
+custom_minimum_size = Vector2(400, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 4

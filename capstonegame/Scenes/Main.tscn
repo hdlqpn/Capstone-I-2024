@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://i1l38yqvr8j7"]
+[gd_scene load_steps=21 format=4 uid="uid://i1l38yqvr8j7"]
 
 [ext_resource type="Texture2D" uid="uid://cvt84kfdpxjpl" path="res://Assets/Tileset/summer_plains_v1.0_standard/assets.png" id="1_d5ou8"]
 [ext_resource type="Texture2D" uid="uid://bbduh4lja4yti" path="res://Assets/Tileset/summer_plains_v1.0_standard/tiles.png" id="2_q2853"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://b1bwvtb0hhlpn" path="res://Scenes/Player3.tscn" id="5_0b76j"]
 [ext_resource type="Texture2D" uid="uid://dwymeol2gb2m" path="res://Assets/Tileset/Buttons/pixil-frame-0 (1).png" id="5_ywikl"]
 [ext_resource type="PackedScene" uid="uid://crjk1vd3lnoft" path="res://Scenes/Player4.tscn" id="6_vrdxy"]
-[ext_resource type="PackedScene" uid="uid://b1clh6f6upfhw" path="res://Scenes/debug_menu.tscn" id="11_krkpp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4jvo"]
 texture = ExtResource("1_d5ou8")
@@ -3095,21 +3094,6 @@ position = Vector2(23, 0)
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("4_k7sic")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="DebugMenu" parent="CanvasLayer" instance=ExtResource("11_krkpp")]
-custom_minimum_size = Vector2(400, 400)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -200.0
-offset_right = 200.0
-offset_bottom = 200.0
-size_flags_horizontal = 4
 
 [connection signal="turn_ended" from="Player1" to="GameManager" method="_on_turn_ended"]
 [connection signal="turn_ended" from="Player2" to="GameManager" method="_on_turn_ended"]

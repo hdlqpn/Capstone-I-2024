@@ -7,7 +7,6 @@
 bg_color = Color(0.119608, 0.370955, 0.571405, 1)
 
 [node name="TextWindow" type="Control"]
-process_mode = 3
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 3
 anchors_preset = 8

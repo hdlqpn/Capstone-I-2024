@@ -1,0 +1,219 @@
+[gd_scene load_steps=3 format=3 uid="uid://famj4tar8e6q"]
+
+[ext_resource type="Script" path="res://Scripts/bingo_card.gd" id="1_q8jwu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jx7l"]
+
+[node name="BingoCard" type="Control"]
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q8jwu")
+
+[node name="BCPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2jx7l")
+
+[node name="BCVBox" type="VBoxContainer" parent="BCPanel"]
+layout_mode = 2
+
+[node name="CardTitle" type="Label" parent="BCPanel/BCVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 55
+text = "bingus card"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SquareGrid" type="GridContainer" parent="BCPanel/BCVBox"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="BingoSquare1" type="PanelContainer" parent="BCPanel/BCVBox/SquareGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarkerColor" type="ColorRect" parent="BCPanel/BCVBox/SquareGrid/BingoSquare1"]
+visible = false
+layout_mode = 2
+color = Color(0, 0.427451, 0, 1)
+
+[node name="SquareLabel" type="Label" parent="BCPanel/BCVBox/SquareGrid/BingoSquare1"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Visit all four corners of the map"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BingoSquare2" type="PanelContainer" parent="BCPanel/BCVBox/SquareGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarkerColor" type="ColorRect" parent="BCPanel/BCVBox/SquareGrid/BingoSquare2"]
+visible = false
+layout_mode = 2
+color = Color(0, 0.427451, 0, 1)
+
+[node name="SquareLabel" type="Label" parent="BCPanel/BCVBox/SquareGrid/BingoSquare2"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Visit all four corners of the map"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BingoSquare3" type="PanelContainer" parent="BCPanel/BCVBox/SquareGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarkerColor" type="ColorRect" parent="BCPanel/BCVBox/SquareGrid/BingoSquare3"]
+visible = false
+layout_mode = 2
+color = Color(0, 0.427451, 0, 1)
+
+[node name="SquareLabel" type="Label" parent="BCPanel/BCVBox/SquareGrid/BingoSquare3"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Visit all four corners of the map"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BingoSquare4" type="PanelContainer" parent="BCPanel/BCVBox/SquareGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarkerColor" type="ColorRect" parent="BCPanel/BCVBox/SquareGrid/BingoSquare4"]
+visible = false
+layout_mode = 2
+color = Color(0, 0.427451, 0, 1)
+
+[node name="SquareLabel" type="Label" parent="BCPanel/BCVBox/SquareGrid/BingoSquare4"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Visit all four corners of the map"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BingoSquare5" type="PanelContainer" parent="BCPanel/BCVBox/SquareGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarkerColor" type="ColorRect" parent="BCPanel/BCVBox/SquareGrid/BingoSquare5"]
+visible = false
+layout_mode = 2
+color = Color(0, 0.427451, 0, 1)
+
+[node name="SquareLabel" type="Label" parent="BCPanel/BCVBox/SquareGrid/BingoSquare5"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Visit all four corners of the map"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BingoSquare6" type="PanelContainer" parent="BCPanel/BCVBox/SquareGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarkerColor" type="ColorRect" parent="BCPanel/BCVBox/SquareGrid/BingoSquare6"]
+visible = false
+layout_mode = 2
+color = Color(0, 0.427451, 0, 1)
+
+[node name="SquareLabel" type="Label" parent="BCPanel/BCVBox/SquareGrid/BingoSquare6"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Visit all four corners of the map"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BingoSquare7" type="PanelContainer" parent="BCPanel/BCVBox/SquareGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarkerColor" type="ColorRect" parent="BCPanel/BCVBox/SquareGrid/BingoSquare7"]
+visible = false
+layout_mode = 2
+color = Color(0, 0.427451, 0, 1)
+
+[node name="SquareLabel" type="Label" parent="BCPanel/BCVBox/SquareGrid/BingoSquare7"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Visit all four corners of the map"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BingoSquare8" type="PanelContainer" parent="BCPanel/BCVBox/SquareGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarkerColor" type="ColorRect" parent="BCPanel/BCVBox/SquareGrid/BingoSquare8"]
+visible = false
+layout_mode = 2
+color = Color(0, 0.427451, 0, 1)
+
+[node name="SquareLabel" type="Label" parent="BCPanel/BCVBox/SquareGrid/BingoSquare8"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Visit all four corners of the map"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BingoSquare9" type="PanelContainer" parent="BCPanel/BCVBox/SquareGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarkerColor" type="ColorRect" parent="BCPanel/BCVBox/SquareGrid/BingoSquare9"]
+visible = false
+layout_mode = 2
+color = Color(0, 0.427451, 0, 1)
+
+[node name="SquareLabel" type="Label" parent="BCPanel/BCVBox/SquareGrid/BingoSquare9"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Visit all four corners of the map"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 505.0
+offset_right = 396.0
+offset_bottom = 536.0
+text = "Close"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1clh6f6upfhw"]
+[gd_scene load_steps=4 format=3 uid="uid://b1clh6f6upfhw"]
 
 [ext_resource type="Script" path="res://Scripts/debug_menu.gd" id="1_prbvg"]
+[ext_resource type="Shader" path="res://blur.gdshader" id="2_l7ngs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aeuad"]
+shader = ExtResource("2_l7ngs")
+shader_parameter/lod = 2.0
 
 [node name="DebugMenu" type="Control"]
 process_mode = 3
@@ -13,6 +18,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_prbvg")
 metadata/_edit_group_ = true
+
+[node name="BlurRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_aeuad")
+custom_minimum_size = Vector2(5000, 5000)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DbPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -80,5 +95,220 @@ size_flags_vertical = 3
 placeholder_text = "input message text here"
 wrap_mode = 1
 
+[node name="BingoButton" type="Button" parent="DbPanel/DbBox/DbCol/DbCol3"]
+layout_mode = 2
+text = "Card Maker"
+
+[node name="BingoCardMaker" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_left = 409.0
+offset_right = 449.0
+offset_bottom = 40.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BingoCardMaker"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="BCMVBox" type="VBoxContainer" parent="BingoCardMaker/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpawnCardButton" type="Button" parent="BingoCardMaker/ScrollContainer/BCMVBox"]
+layout_mode = 2
+text = "SPAWN CARD"
+
+[node name="SquareContent1" type="VBoxContainer" parent="BingoCardMaker/ScrollContainer/BCMVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent1"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Square 1
+"
+
+[node name="TextEdit" type="TextEdit" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent1"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "What Text?"
+
+[node name="CheckBox" type="CheckBox" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent1"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Marked?"
+
+[node name="SquareContent2" type="VBoxContainer" parent="BingoCardMaker/ScrollContainer/BCMVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent2"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Square 2
+"
+
+[node name="TextEdit" type="TextEdit" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent2"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "What Text?"
+
+[node name="CheckBox" type="CheckBox" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Marked?"
+
+[node name="SquareContent3" type="VBoxContainer" parent="BingoCardMaker/ScrollContainer/BCMVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent3"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Square 3
+"
+
+[node name="TextEdit" type="TextEdit" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent3"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "What Text?"
+
+[node name="CheckBox" type="CheckBox" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent3"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Marked?"
+
+[node name="SquareContent4" type="VBoxContainer" parent="BingoCardMaker/ScrollContainer/BCMVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent4"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Square 4
+"
+
+[node name="TextEdit" type="TextEdit" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent4"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "What Text?"
+
+[node name="CheckBox" type="CheckBox" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent4"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Marked?"
+
+[node name="SquareContent5" type="VBoxContainer" parent="BingoCardMaker/ScrollContainer/BCMVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent5"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Square 5
+"
+
+[node name="TextEdit" type="TextEdit" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent5"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "What Text?"
+
+[node name="CheckBox" type="CheckBox" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent5"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Marked?"
+
+[node name="SquareContent6" type="VBoxContainer" parent="BingoCardMaker/ScrollContainer/BCMVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent6"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Square 6
+"
+
+[node name="TextEdit" type="TextEdit" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent6"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "What Text?"
+
+[node name="CheckBox" type="CheckBox" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent6"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Marked?"
+
+[node name="SquareContent7" type="VBoxContainer" parent="BingoCardMaker/ScrollContainer/BCMVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent7"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Square 7
+"
+
+[node name="TextEdit" type="TextEdit" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent7"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "What Text?"
+
+[node name="CheckBox" type="CheckBox" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent7"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Marked?"
+
+[node name="SquareContent8" type="VBoxContainer" parent="BingoCardMaker/ScrollContainer/BCMVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent8"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Square 8
+"
+
+[node name="TextEdit" type="TextEdit" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent8"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "What Text?"
+
+[node name="CheckBox" type="CheckBox" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent8"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Marked?"
+
+[node name="SquareContent9" type="VBoxContainer" parent="BingoCardMaker/ScrollContainer/BCMVBox"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent9"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Square 9
+"
+
+[node name="TextEdit" type="TextEdit" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent9"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "What Text?"
+
+[node name="CheckBox" type="CheckBox" parent="BingoCardMaker/ScrollContainer/BCMVBox/SquareContent9"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Marked?"
+
 [connection signal="pressed" from="DbPanel/DbBox/DbCol/DbCol3/EndButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="DbPanel/DbBox/DbCol/DbCol3/TextButton" to="." method="_on_text_button_pressed"]
+[connection signal="pressed" from="DbPanel/DbBox/DbCol/DbCol3/BingoButton" to="." method="_on_bingo_button_pressed"]
+[connection signal="pressed" from="BingoCardMaker/ScrollContainer/BCMVBox/SpawnCardButton" to="." method="_on_spawn_card_button_pressed"]
