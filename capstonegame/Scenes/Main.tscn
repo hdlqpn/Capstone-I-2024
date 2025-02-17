@@ -9,12 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://co2rh2o2ex8kn" path="res://Scenes/Player2.tscn" id="4_v1xs0"]
 [ext_resource type="PackedScene" uid="uid://cghu1j6nfwgyo" path="res://Scenes/Player3.tscn" id="5_0b76j"]
 [ext_resource type="Texture2D" uid="uid://dwymeol2gb2m" path="res://Assets/Tileset/Buttons/pixil-frame-0 (1).png" id="5_ywikl"]
-<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://bj770j1klw5cg" path="res://Scenes/Player4.tscn" id="6_vrdxy"]
 [ext_resource type="PackedScene" uid="uid://b1clh6f6upfhw" path="res://Scenes/debug_menu.tscn" id="11_krkpp"]
-=======
-[ext_resource type="PackedScene" uid="uid://crjk1vd3lnoft" path="res://Scenes/Player4.tscn" id="6_vrdxy"]
->>>>>>> 9db51b3a6b2ba3d7f708d06f75e52d84565689d2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4jvo"]
 texture = ExtResource("1_d5ou8")
