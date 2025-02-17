@@ -1,6 +1,5 @@
 extends Control
 
-''' This node has the process mode set to ALWAYS '''
 
 # Node Reference
 @onready var text_node = $MarginContainer/NinePatchRect/Panel/RichTextLabel

@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalVariables="*res://Scripts/global_variables.gd"
+AudioManager="*res://Scenes/AudioGlobal.tscn"
+GlobalVariables="*res://Scenes/global_variables.tscn"
 
 [display]
 
