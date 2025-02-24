@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwbbjcr4x8v0n"]
+[gd_scene load_steps=20 format=3 uid="uid://bo88c24ncq05i"]
 
 [ext_resource type="Script" path="res://Scripts/Player1.gd" id="1_tmly4"]
 [ext_resource type="Texture2D" uid="uid://bs331tf2s1in6" path="res://Assets/Player/justaguy.png" id="2_x4xop"]
@@ -7,18 +7,6 @@
 [sub_resource type="Theme" id="Theme_acaa7"]
 default_base_scale = 30.0
 default_font_size = 60
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mevkd"]
-atlas = ExtResource("2_x4xop")
-region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n436r"]
-atlas = ExtResource("2_x4xop")
-region = Rect2(256, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_61iix"]
-atlas = ExtResource("2_x4xop")
-region = Rect2(512, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v6n0"]
 atlas = ExtResource("2_x4xop")
@@ -31,6 +19,18 @@ region = Rect2(256, 0, 256, 256)
 [sub_resource type="AtlasTexture" id="AtlasTexture_csw4r"]
 atlas = ExtResource("2_x4xop")
 region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mevkd"]
+atlas = ExtResource("2_x4xop")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n436r"]
+atlas = ExtResource("2_x4xop")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61iix"]
+atlas = ExtResource("2_x4xop")
+region = Rect2(512, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4u7t"]
 atlas = ExtResource("3_wf7eb")
@@ -68,6 +68,20 @@ region = Rect2(512, 512, 256, 256)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5v6n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2now")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csw4r")
+}],
+"loop": true,
+"name": &"Choosing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mevkd")
 }, {
 "duration": 1.0,
@@ -78,20 +92,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5v6n0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2now")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_csw4r")
-}],
-"loop": true,
-"name": &"IdleAlt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -163,11 +163,16 @@ offset_right = 470.0
 offset_bottom = 190.0
 theme = SubResource("Theme_acaa7")
 
+[node name="ChoiceContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -220.0
+offset_right = 60.0
+offset_bottom = -120.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_avtfg")
-animation = &"Idle"
-frame = 1
-frame_progress = 0.718021
+animation = &"Choosing"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.98, 2.98)
