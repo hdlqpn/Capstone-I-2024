@@ -3068,6 +3068,7 @@ sources/2 = SubResource("TileSetAtlasSource_13phn")
 sources/3 = SubResource("TileSetAtlasSource_vhtln")
 
 [node name="Main" type="Node2D"]
+position = Vector2(-1, 0)
 
 [node name="Board" type="Node2D" parent="."]
 

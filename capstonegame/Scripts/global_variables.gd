@@ -21,11 +21,11 @@ var p2_Place = 2
 var p3_Place = 3
 var p4_Place = 4
 
-#Variables if we need to track where someone lands for some reason. Shouldn't need in the current state.
-#var p1_Space
-#var p2_Space
-#var p3_Space
-#var p4_Space
+#Roll Variable
+func rollNum() -> int:
+	var result = randi_range(1,6)
+	return result
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
