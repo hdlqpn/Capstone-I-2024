@@ -89,28 +89,6 @@ func move_to_next_tile(delta):
 					is_moving = false
 					animated_sprite.play("Choosing")
 					choose_path(next_tiles)  # Pause movement and ask player
-					
-					# After the movement_path clears, from the current posistion,
-					# it must append vectors into the movement path equal to the number rolled - steps already taken.
-					# Represented area to work on by this is between the ----'s
-					movement_path.clear() 
-					#------------------------------------------------------------------------------------------------
-					var movement_steps = []
-					var keys = tile_paths.keys()
-					var next_tile_index = keys.find(current_tile) - steps_taken
-					var left_over = roll_result - steps_taken
-					print("roll result", roll_result)
-					print("Left_over!", left_over)
-					for i in range(left_over):
-						if next_tile_index < keys.size():
-							var next_tile = keys[next_tile_index]
-							movement_steps.append(next_tile)
-							next_tile_index += 1
-					move_character(movement_steps)
-					print("Next_tiles", next_tiles)
-					print("tile_path", tile_paths[target_tile])
-					print("current_tile", current_tile)
-					print("mp2", movement_path)
 					return
 					#----------------------------------------------------------------------------------------------------
 			position = target_position
@@ -140,6 +118,10 @@ func move_to_next_tile(delta):
 			position += direction * distance_to_move
 			
 func choose_path(options: Array):
+	# Clear previous buttons before adding new ones
+	for child in choice_container.get_children():
+		child.queue_free()
+
 	print("Fork detected! Choose a direction:")
 	choice_container.visible = true
 
@@ -149,12 +131,37 @@ func choose_path(options: Array):
 		button.pressed.connect(func(): _on_path_selected(i))
 		choice_container.add_child(button)
 
+	# Wait for player to make a choice
 	var choice = await path_chosen
-	current_tile = options[choice]
-	print("options:", options)
-	movement_path.append(current_tile)
+	current_tile = options[choice]  # The player has selected one of the options
+	print("Chosen path:", current_tile)
+	
+	movement_path.clear()  # Clear the current path
+	_create_new_path(current_tile)  # Recursively call _create_new_path to continue movement
 	is_moving = true
 	animated_sprite.play("Moving")
+
+#new function	
+func _create_new_path(start_tile: Vector2):
+	var steps_left = (roll_result - steps_taken) - 1 # The number of steps remaining after rolling the dice
+	var current_tile = start_tile
+	var movement_steps = [current_tile]  # Start by adding the current tile
+	while steps_left > 0:
+		if tile_paths.has(current_tile):  # Check if there are next possible tiles
+			var next_tiles = tile_paths[current_tile]
+			var next_tile = next_tiles[0]
+			movement_steps.append(next_tile)  # Add the next tile to the movement path
+			current_tile = next_tile  # Move to the next tile
+			steps_left -= 1  # Decrease the number of steps left
+		else:
+			break  # No further tiles to move, end the movement path
+	
+	# If there are steps left after this loop, handle that
+	if steps_left > 0:
+		print("Not enough tiles to complete the movement.")
+	
+	# Start the movement with the calculated path
+	move_character(movement_steps)
 
 func _on_path_selected(choice: int):
 	emit_signal("path_chosen", choice)
@@ -165,7 +172,8 @@ func _on_button_pressed():
 	# Disable the roll button to prevent spamming
 	roll_button.disabled = true
 	use_stamina_button.disabled = true
-	roll_result = randi() % 6 + 1
+	roll_result = 6
+	#roll_result = randi() % 6 + 1
 	print("Rolled: ", roll_result)
 
 	# Add stamina to roll result if spinbox is visible
