@@ -6,6 +6,9 @@ extends Control
 var text_window_scene = load("res://Scenes/text_window.tscn")
 var bingo_card_scene = load("res://Scenes/bingo_card.tscn")
 
+# Signals
+signal enable_hud
+
 
 ''' ---------- DEFAULT FUNCTIONS ---------- '''
 
@@ -76,3 +79,7 @@ func _on_spawn_card_button_pressed() -> void:
 	
 	next_bingo_card.process_mode = PROCESS_MODE_ALWAYS
 	get_parent().add_child(next_bingo_card)
+
+
+func _on_enable_hud_pressed() -> void:
+	enable_hud.emit()

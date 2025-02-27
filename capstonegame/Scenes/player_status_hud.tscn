@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqjmrho6bl3gk"]
+
+[ext_resource type="Script" path="res://Scripts/player_status_hud.gd" id="1_77jh0"]
+[ext_resource type="Texture2D" uid="uid://dn1td34s5rsiu" path="res://characters/Player_1/justaguy.png" id="1_nigwx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mm3qw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwh8g"]
+
+[node name="PlayerStatusHud" type="PanelContainer"]
+custom_minimum_size = Vector2(320, 121)
+anchors_preset = -1
+anchor_right = 0.278
+anchor_bottom = 0.187
+offset_right = -0.256042
+offset_bottom = -0.176003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mm3qw")
+script = ExtResource("1_77jh0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer/Panel"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lwh8g")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Panel/Panel"]
+position = Vector2(73, 115)
+texture = ExtResource("1_nigwx")
+hframes = 3
+vframes = 2
+frame = 3
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Extra Dice: _
+Stamina: _
+Place: _"
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="CheckBox2" type="CheckBox" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="CheckBox3" type="CheckBox" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="CheckBox4" type="CheckBox" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="CheckBox5" type="CheckBox" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="CheckBox6" type="CheckBox" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="CheckBox7" type="CheckBox" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="CheckBox8" type="CheckBox" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+disabled = true
+
+[node name="CheckBox9" type="CheckBox" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+disabled = true

@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp6fodkkilif6"]
+[gd_scene load_steps=8 format=3 uid="uid://cp6fodkkilif6"]
 
 [ext_resource type="Script" path="res://Scripts/global_variables.gd" id="1_1edux"]
 [ext_resource type="PackedScene" uid="uid://b1clh6f6upfhw" path="res://Scenes/debug_menu.tscn" id="2_7fbg3"]
+[ext_resource type="PackedScene" uid="uid://dqjmrho6bl3gk" path="res://Scenes/player_status_hud.tscn" id="3_ebcq0"]
+[ext_resource type="Texture2D" uid="uid://dn1td34s5rsiu" path="res://characters/Player_1/justaguy.png" id="4_8s1sl"]
+[ext_resource type="Texture2D" uid="uid://cxo6xbmue71xq" path="res://characters/Player_2/justaguy_2.png" id="5_mqp5c"]
+[ext_resource type="Texture2D" uid="uid://sxtvq3hjog0h" path="res://characters/Player_3/justaguy_3.png" id="6_ak66h"]
+[ext_resource type="Texture2D" uid="uid://y6xy8x21k5t8" path="res://characters/Player_4/justaguy_4.png" id="7_uw1j8"]
 
 [node name="Global_Variables" type="Node"]
 script = ExtResource("1_1edux")
@@ -21,3 +26,57 @@ offset_top = -200.0
 offset_right = 200.0
 offset_bottom = 200.0
 size_flags_horizontal = 4
+
+[node name="HudCanvasLayer" type="CanvasLayer" parent="."]
+layer = 8
+
+[node name="PlayerStatusHud" parent="HudCanvasLayer" instance=ExtResource("3_ebcq0")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 302.0
+offset_bottom = 120.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 0
+player_icon = ExtResource("4_8s1sl")
+
+[node name="PlayerStatusHud2" parent="HudCanvasLayer" instance=ExtResource("3_ebcq0")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -302.0
+offset_right = 0.0
+offset_bottom = 120.0
+grow_horizontal = 0
+grow_vertical = 1
+player_icon = ExtResource("5_mqp5c")
+
+[node name="PlayerStatusHud3" parent="HudCanvasLayer" instance=ExtResource("3_ebcq0")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_right = 302.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+player_icon = ExtResource("6_ak66h")
+
+[node name="PlayerStatusHud4" parent="HudCanvasLayer" instance=ExtResource("3_ebcq0")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -302.0
+offset_top = -120.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+player_icon = ExtResource("7_uw1j8")
+
+[connection signal="enable_hud" from="CanvasLayer/DebugMenu" to="." method="_on_debug_menu_enable_hud"]
