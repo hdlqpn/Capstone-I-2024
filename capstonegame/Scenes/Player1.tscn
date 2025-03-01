@@ -171,10 +171,20 @@ offset_right = 60.0
 offset_bottom = -120.0
 
 [node name="RollCounter" type="Label" parent="UI"]
+<<<<<<< Updated upstream
 offset_left = -100.0
 offset_top = -200.0
 offset_right = 80.0
 offset_bottom = -140.0
+=======
+layout_mode = 0
+offset_left = -40.0
+offset_top = -200.0
+offset_right = -18.0
+offset_bottom = -177.0
+scale = Vector2(3, 3)
+text = "6"
+>>>>>>> Stashed changes
 horizontal_alignment = 1
 vertical_alignment = 1
 

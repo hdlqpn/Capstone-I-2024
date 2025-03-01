@@ -16,6 +16,10 @@ var stamina_used = 0
 var tilemap
 var roll_result: int
 var steps_taken: int
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 # Define a dictionary to store the valid tiles
 var valid_tiles: Dictionary = {
 	Vector2(0, -1): "blue",
@@ -111,6 +115,7 @@ func start_moving():
 		animated_sprite.play("Moving")
 
 func _process(delta):
+	$UI/RollCounter.text = str(roll_result)
 	if is_moving:
 		move_to_next_tile(delta)
 	$UI/RollCounter.text = str(roll_result)
@@ -143,7 +148,7 @@ func move_to_next_tile(delta):
 			position = target_position
 			roll_result -= 1
 			movement_path.pop_front()
-
+			roll_result -= 1
 			# If there are more tiles to move, continue moving
 			if movement_path.size() == 0:
 				is_moving = false
@@ -163,6 +168,10 @@ func _on_button_pressed():
 	roll_button.disabled = true
 	use_stamina_button.disabled = true
 	roll_result = GlobalVariables.rollNum()
+<<<<<<< Updated upstream
+=======
+	$UI/RollCounter.text = str(roll_result)
+>>>>>>> Stashed changes
 	print("Rolled: ", roll_result)
 
 	# Add stamina to roll result if spinbox is visible
