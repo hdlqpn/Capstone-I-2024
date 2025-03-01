@@ -67,6 +67,7 @@ func start_moving():
 func _process(delta):
 	if is_moving:
 		move_to_next_tile(delta)
+	$UI/RollCounter.text = str(roll_result)
 
 # Internal function to move to the next position in the movement path
 func move_to_next_tile(delta):
@@ -94,6 +95,7 @@ func move_to_next_tile(delta):
 			position = target_position
 			movement_path.pop_front()
 			steps_taken += 1
+			roll_result -= 1
 			
 			# If there are more tiles to move, continue moving
 			if movement_path.size() == 0:

@@ -165,12 +165,24 @@ theme = SubResource("Theme_acaa7")
 
 [node name="ChoiceContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 0
-offset_left = -100.0
-offset_top = -220.0
-offset_right = 60.0
-offset_bottom = -120.0
+offset_left = -120.0
+offset_top = -240.0
+offset_right = 40.0
+offset_bottom = -140.0
+
+[node name="RollCounter" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -40.0
+offset_right = -200.0
+offset_bottom = -17.0
+scale = Vector2(3, 3)
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-20, 0)
 sprite_frames = SubResource("SpriteFrames_avtfg")
 animation = &"Choosing"
 
