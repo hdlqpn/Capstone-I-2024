@@ -1,6 +1,9 @@
 extends Node2D
 
 # Declare variables for animations, movement speed, stamina, and current state
+@onready var tile_manager = get_node("/root/Main/TileManager")
+@onready var tile_paths = tile_manager.tile_paths  # Now correctly referencing the dictionary
+@onready var valid_tiles = tile_manager.tile_types
 var animated_sprite: AnimatedSprite2D
 var current_tile: Vector2 = Vector2(-2, 0)
 var move_speed: float = 100.0
@@ -9,63 +12,16 @@ var movement_path: Array = []
 var roll_button: Button
 var use_stamina_button: Button
 var stamina_spinbox: SpinBox
+var choice_container: VBoxContainer
 var stamina: int = 3
 var max_stamina: int = 10
 var tilemap
-
-# Define a dictionary to store the valid tiles
-var valid_tiles: Dictionary = {
-	Vector2(0, -1): "blue",
-	Vector2(0, -2): "blue",
-	Vector2(0, -3): "blue",
-	Vector2(0, -4): "red",
-	Vector2(0, -5): "blue",
-	Vector2(0, -6): "blue",
-	Vector2(0, -7): "red",
-	Vector2(0, -8): "blue",
-	Vector2(0, -9): "green",
-	Vector2(-1, -9): "blue",
-	Vector2(-2, -9): "blue",
-	Vector2(-3, -9): "blue",
-	Vector2(-4, -9): "red",
-	Vector2(-5, -9): "blue",
-	Vector2(-5, -10): "blue",
-	Vector2(-5, -11): "red",
-	Vector2(-5, -12): "blue",
-	Vector2(-5, -13): "blue",
-	Vector2(-5, -14): "red",
-	Vector2(-5, -15): "blue",
-	Vector2(-4, -15): "blue",
-	Vector2(-3, -15): "blue",
-	Vector2(-2, -15): "red",
-	Vector2(-1, -15): "blue",
-	Vector2(-0, -15): "green",
-	Vector2(1, -15): "red",
-	Vector2(2, -15): "blue",
-	Vector2(3, -15): "blue",
-	Vector2(4, -15): "red",
-	Vector2(5, -15): "blue",
-	Vector2(5, -16): "blue",
-	Vector2(5, -17): "red",
-	Vector2(5, -18): "blue",
-	Vector2(5, -19): "blue",
-	Vector2(5, -20): "blue",
-	Vector2(5, -21): "red",
-	Vector2(4, -21): "blue",
-	Vector2(3, -21): "blue",
-	Vector2(2, -21): "red",
-	Vector2(1, -21): "blue",
-	Vector2(0, -21): "blue",
-	Vector2(0, -22): "red",
-	Vector2(0, -23): "blue",
-	Vector2(0, -24): "red",
-	Vector2(0, -25): "blue",
-	Vector2(0, -26): "End",
-	# Add more tiles as needed
-}
+var roll_result: int
+var steps_taken: int
 
 # Signal to inform when the player's turn has ended
 signal turn_ended
+signal path_chosen(choice: int)
 
 func _ready():
 	# Set up reference to the animated sprite
@@ -84,6 +40,7 @@ func _ready():
 	roll_button = $UI/Button
 	use_stamina_button = $UI/Button2
 	stamina_spinbox = $UI/SpinBox
+	choice_container = $UI/ChoiceContainer
 
 	# Hide stamina spinbox at the start
 	stamina_spinbox.visible = false
@@ -110,24 +67,11 @@ func start_moving():
 func _process(delta):
 	if is_moving:
 		move_to_next_tile(delta)
+	$UI/RollCounter.text = str(roll_result)
 
 # Internal function to move to the next position in the movement path
 func move_to_next_tile(delta):
-	if movement_path.size() == 0 and valid_tiles.has(current_tile):
-		var tile_tag = valid_tiles[current_tile]
-		match tile_tag:
-			"red":
-				if stamina > 0:
-					stamina -= 1
-			"blue":
-				if stamina < max_stamina:
-					stamina += 1
-			"green":
-				var keys = valid_tiles.keys()
-				var next_tile_index = keys.find(current_tile) + 15
-				if next_tile_index < keys.size():
-					current_tile = keys[next_tile_index]
-					movement_path.append(current_tile)
+	print("movement_path", movement_path)
 	if movement_path.size() > 0:
 		var target_tile: Vector2 = movement_path[0]
 		var target_position: Vector2 = tilemap.map_to_local(target_tile)
@@ -136,28 +80,102 @@ func move_to_next_tile(delta):
 
 		# If the player is close enough to the target tile, snap to it
 		if position.distance_to(target_position) <= distance_to_move:
+			if tile_paths.has(current_tile):
+				var next_tiles = tile_paths[target_tile]
+				print("Next_tiles", next_tiles)
+				print("tile_path", tile_paths[target_tile])
+				print("current_tile", current_tile)
+				if next_tiles.size() > 1:  # If there's a fork
+					print("a fork is coming!")
+					is_moving = false
+					animated_sprite.play("Choosing")
+					choose_path(next_tiles)  # Pause movement and ask player
+					return
+					#----------------------------------------------------------------------------------------------------
 			position = target_position
 			movement_path.pop_front()
-
+			steps_taken += 1
+			roll_result -= 1
+			
 			# If there are more tiles to move, continue moving
 			if movement_path.size() == 0:
 				is_moving = false
 				animated_sprite.play("Idle")
+				var tile_tag = valid_tiles[current_tile]
+				match tile_tag:
+					"red":
+						if stamina > 0:
+							stamina -= 1
+					"blue":
+						if stamina < max_stamina:
+							stamina += 1
 				await get_tree().create_timer(3).timeout
 				emit_signal("turn_ended")
+				print("Stamina", stamina)
 				# Re-enable the roll button after the turn ends
 				roll_button.disabled = false
 				use_stamina_button.disabled = false
 		else:
 			# Move the player towards the target tile
 			position += direction * distance_to_move
+			
+func choose_path(options: Array):
+	# Clear previous buttons before adding new ones
+	for child in choice_container.get_children():
+		child.queue_free()
+
+	print("Fork detected! Choose a direction:")
+	choice_container.visible = true
+
+	for i in range(options.size()):
+		var button = Button.new()
+		button.text = "Path " + str(i + 1)
+		button.pressed.connect(func(): _on_path_selected(i))
+		choice_container.add_child(button)
+
+	# Wait for player to make a choice
+	var choice = await path_chosen
+	current_tile = options[choice]  # The player has selected one of the options
+	print("Chosen path:", current_tile)
+	
+	movement_path.clear()  # Clear the current path
+	_create_new_path(current_tile)  # Recursively call _create_new_path to continue movement
+	is_moving = true
+	animated_sprite.play("Moving")
+
+#new function	
+func _create_new_path(start_tile: Vector2):
+	var steps_left = (roll_result - steps_taken) - 1 # The number of steps remaining after rolling the dice
+	var current_tile = start_tile
+	var movement_steps = [current_tile]  # Start by adding the current tile
+	while steps_left > 0:
+		if tile_paths.has(current_tile):  # Check if there are next possible tiles
+			var next_tiles = tile_paths[current_tile]
+			var next_tile = next_tiles[0]
+			movement_steps.append(next_tile)  # Add the next tile to the movement path
+			current_tile = next_tile  # Move to the next tile
+			steps_left -= 1  # Decrease the number of steps left
+		else:
+			break  # No further tiles to move, end the movement path
+	
+	# If there are steps left after this loop, handle that
+	if steps_left > 0:
+		print("Not enough tiles to complete the movement.")
+	
+	# Start the movement with the calculated path
+	move_character(movement_steps)
+
+func _on_path_selected(choice: int):
+	emit_signal("path_chosen", choice)
+	choice_container.visible = false
 
 # Function called when the roll button is pressed
 func _on_button_pressed():
 	# Disable the roll button to prevent spamming
 	roll_button.disabled = true
 	use_stamina_button.disabled = true
-	var roll_result = randi() % 6 + 1
+	roll_result = 6
+	#roll_result = randi() % 6 + 1
 	print("Rolled: ", roll_result)
 
 	# Add stamina to roll result if spinbox is visible
@@ -180,7 +198,7 @@ func _on_button_pressed():
 			var next_tile = keys[next_tile_index]
 			movement_steps.append(next_tile)
 			next_tile_index += 1
-
+ 
 	move_character(movement_steps)
 	current_tile = movement_steps[-1] if movement_steps.size() > 0 else current_tile
 	
