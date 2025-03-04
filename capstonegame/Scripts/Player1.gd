@@ -27,6 +27,7 @@ func _ready():
 	# Set up reference to the animated sprite
 	animated_sprite = $AnimatedSprite2D
 	
+	
 	# Set up reference to the tilemap
 	tilemap = get_node("/root/Main/Board/Land")
 	
@@ -77,6 +78,13 @@ func move_to_next_tile(delta):
 		var target_position: Vector2 = tilemap.map_to_local(target_tile)
 		var direction: Vector2 = (target_position - position).normalized()
 		var distance_to_move: float = move_speed * delta
+		if direction < Vector2(0,0):
+			print("move left!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+			animated_sprite.flip_h = true
+		elif direction > Vector2(0,0):
+			print("move right!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+			animated_sprite.flip_h = false
+
 
 		# If the player is close enough to the target tile, snap to it
 		if position.distance_to(target_position) <= distance_to_move:
@@ -174,7 +182,7 @@ func _on_button_pressed():
 	# Disable the roll button to prevent spamming
 	roll_button.disabled = true
 	use_stamina_button.disabled = true
-	roll_result = 6
+	roll_result = 100
 	#roll_result = randi() % 6 + 1
 	print("Rolled: ", roll_result)
 

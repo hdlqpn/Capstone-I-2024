@@ -22,6 +22,7 @@ var tile_paths: Dictionary = {
 	Vector2(-13, 1): [Vector2(-15, 1)],
 	Vector2(-15, 1): [Vector2(-17, 1)],
 	Vector2(-17, 1): [Vector2(-19, 1)],
+	Vector2(-19, 1): [Vector2(-21, 1)],
 	Vector2(-3, 13): [Vector2(-3, 15)],
 	Vector2(-3, 15): [Vector2(-3, 17)],
 	Vector2(-3, 17): [Vector2(-3, 19), Vector2(-5, 17)],
@@ -33,7 +34,7 @@ var tile_paths: Dictionary = {
 	Vector2(2, 25): [Vector2(3, 23)],
 	Vector2(3, 23): [Vector2(3 ,21)],
 	Vector2(3, 21): [Vector2(3, 19)],
-	Vector2(3, 19): [Vector2(3, 15)],
+	Vector2(3, 19): [Vector2(3, 17)],
 	Vector2(3, 15): [Vector2(3, 13)],
 	Vector2(3, 13): [Vector2(3, 11)],
 	Vector2(3, 11): [Vector2(2, 9)],
@@ -44,7 +45,7 @@ var tile_paths: Dictionary = {
 	Vector2(-16, 12): [Vector2(-18, 9)],
 	Vector2(-18, 9): [Vector2(-19, 6)],
 	Vector2(-19, 6): [Vector2(-19, 3)],
-	Vector2(-19, 3): [Vector2(-21, 1)],
+	Vector2(-19, 3): [Vector2(-19, 1)],
 	Vector2(-21, 1): [Vector2(-23, 1)],
 	Vector2(-23, 1): [Vector2(-25, 1)],
 	Vector2(-25, 1): [Vector2(-27, 0)],
@@ -52,6 +53,7 @@ var tile_paths: Dictionary = {
 	Vector2(-28, -2): [Vector2(-27, -4)],
 	Vector2(-27, -4): [Vector2(-25, -5)],
 	Vector2(-25, -5): [Vector2(-23, -5)],
+	Vector2(-23, -5): [Vector2(-21, -5)],
 	Vector2(-21, -5): [Vector2(-19, -5)],
 	Vector2(-19, -5): [Vector2(-17, -5), Vector2(-19, -7)],
 	Vector2(-17, -5): [Vector2(-15, -5)],
@@ -121,7 +123,8 @@ var tile_paths: Dictionary = {
 	Vector2(14, 14): [Vector2(11, 16)],
 	Vector2(11, 16): [Vector2(8, 17)],
 	Vector2(8, 17): [Vector2(5, 17)],
-	Vector2(5, 17): [Vector2(3, 17)]
+	Vector2(5, 17): [Vector2(3, 17)],
+	Vector2(3, 17): [Vector2(3, 15)]
 }
 var tile_types: Dictionary = {
 	Vector2(0, 2): "fork",
@@ -139,7 +142,7 @@ var tile_types: Dictionary = {
 	Vector2(0, 8): "fork",
 	Vector2(-2, 9): "blue",
 	Vector2(-3, 11): "blue",
-	Vector2(-3, -13): "blue",
+	Vector2(-3, 13): "blue",
 	Vector2(-10, -2): "fork",
 	Vector2(-11, 0): "blue",
 	Vector2(-13, 1): "blue",
