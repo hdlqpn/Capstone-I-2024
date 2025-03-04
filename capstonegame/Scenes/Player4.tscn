@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bj770j1klw5cg"]
 
-[ext_resource type="Script" path="res://Scripts/Player4.gd" id="1_wbvvu"]
+[ext_resource type="Script" uid="uid://b8e5mql4k2hwr" path="res://Scripts/Player4.gd" id="1_wbvvu"]
 [ext_resource type="Texture2D" uid="uid://y6xy8x21k5t8" path="res://characters/Player_4/justaguy_4.png" id="2_ic6gl"]
 [ext_resource type="Texture2D" uid="uid://bheen6itkaauq" path="res://characters/Player_4/justaguyWALKIN_4.png" id="3_of6ip"]
 
@@ -159,6 +159,7 @@ offset_right = 470.0
 offset_bottom = 190.0
 
 [node name="RollCounter" type="Label" parent="UI"]
+layout_mode = 0
 offset_left = -240.0
 offset_top = -40.0
 offset_right = -200.0

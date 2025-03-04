@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cp6fodkkilif6"]
 
-[ext_resource type="Script" path="res://Scripts/global_variables.gd" id="1_1edux"]
+[ext_resource type="Script" uid="uid://u75xhav0tv4i" path="res://Scripts/global_variables.gd" id="1_1edux"]
 [ext_resource type="PackedScene" uid="uid://b1clh6f6upfhw" path="res://Scenes/debug_menu.tscn" id="2_7fbg3"]
 [ext_resource type="PackedScene" uid="uid://dqjmrho6bl3gk" path="res://Scenes/player_status_hud.tscn" id="3_ebcq0"]
 [ext_resource type="Texture2D" uid="uid://dn1td34s5rsiu" path="res://characters/Player_1/justaguy.png" id="4_8s1sl"]
