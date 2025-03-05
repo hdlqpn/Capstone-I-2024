@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://du3jndm6k7sj"]
 
 [ext_resource type="Texture2D" uid="uid://b3g5d2e08pi7y" path="res://characters/Player_3/SpookyP3.png" id="1_fjgxf"]
-[ext_resource type="Script" path="res://Scripts/text_window.gd" id="1_xsugl"]
+[ext_resource type="Script" uid="uid://blk2u3ubn8snj" path="res://Scripts/text_window.gd" id="1_xsugl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dy23"]
 bg_color = Color(0.119608, 0.370955, 0.571405, 1)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp6fodkkilif6"]
 
-[ext_resource type="Script" path="res://Scripts/global_variables.gd" id="1_1edux"]
+[ext_resource type="Script" uid="uid://byyp5xu2udu4u" path="res://Scripts/global_variables.gd" id="1_1edux"]
 [ext_resource type="PackedScene" uid="uid://b1clh6f6upfhw" path="res://Scenes/debug_menu.tscn" id="2_7fbg3"]
 
 [node name="Global_Variables" type="Node"]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SoundEffects" load_steps=3 format=3 uid="uid://bby0fqagak4eu"]
 
-[ext_resource type="Script" path="res://Scripts/sound_effects.gd" id="1_bwuxc"]
+[ext_resource type="Script" uid="uid://bu03pdv4jcm1e" path="res://Scripts/sound_effects.gd" id="1_bwuxc"]
 [ext_resource type="AudioStream" uid="uid://ja4rpvb2bwkm" path="res://Assets/SFX/button.mp3" id="2_a41fb"]
 
 [resource]

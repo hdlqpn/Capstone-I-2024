@@ -1,9 +1,9 @@
 [gd_scene load_steps=41 format=3 uid="uid://brdy4hiondcqu"]
 
-[ext_resource type="Script" path="res://minigames/platform_game_3.gd" id="1_34yl0"]
+[ext_resource type="Script" uid="uid://c732s7q3u0r16" path="res://minigames/platform_game_3.gd" id="1_34yl0"]
 [ext_resource type="Texture2D" uid="uid://bioq12xgwx3b3" path="res://Assets/sky2.png" id="1_e8e3y"]
-[ext_resource type="Script" path="res://minigames/side_scroll.gd" id="2_m5jbx"]
-[ext_resource type="Script" path="res://minigames/player_1_platform_game.gd" id="4_4b18u"]
+[ext_resource type="Script" uid="uid://cfu6jl2jmv4o8" path="res://minigames/side_scroll.gd" id="2_m5jbx"]
+[ext_resource type="Script" uid="uid://cln7axgcsdp3" path="res://minigames/player_1_platform_game.gd" id="4_4b18u"]
 [ext_resource type="Texture2D" uid="uid://dn1td34s5rsiu" path="res://characters/Player_1/justaguy.png" id="5_fulud"]
 [ext_resource type="Texture2D" uid="uid://c7vwusxytibnr" path="res://characters/Player_1/justaguyHURT.png" id="6_k5g5j"]
 [ext_resource type="Texture2D" uid="uid://66i3yal3esoq" path="res://characters/Player_1/justaguyWALKIN.png" id="7_mnl5p"]

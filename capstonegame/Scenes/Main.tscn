@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://bbduh4lja4yti" path="res://Assets/Tileset/summer_plains_v1.0_standard/tiles.png" id="2_q2853"]
 [ext_resource type="Texture2D" uid="uid://bymlc814qp7el" path="res://Assets/Tileset/Buttons/pixil-frame-0.png" id="3_t5ix8"]
 [ext_resource type="PackedScene" uid="uid://bo88c24ncq05i" path="res://Scenes/Player1.tscn" id="3_xoben"]
-[ext_resource type="Script" path="res://Scripts/GameManger.gd" id="4_k7sic"]
+[ext_resource type="Script" uid="uid://cks5mw4o4xgf1" path="res://Scripts/GameManger.gd" id="4_k7sic"]
 [ext_resource type="Texture2D" uid="uid://c84hqkc4wcwlo" path="res://Assets/Tileset/Buttons/pixil-frame-0 (2).png" id="4_oq6qa"]
 [ext_resource type="PackedScene" uid="uid://co2rh2o2ex8kn" path="res://Scenes/Player2.tscn" id="4_v1xs0"]
 [ext_resource type="PackedScene" uid="uid://cghu1j6nfwgyo" path="res://Scenes/Player3.tscn" id="5_0b76j"]
 [ext_resource type="Texture2D" uid="uid://dwymeol2gb2m" path="res://Assets/Tileset/Buttons/pixil-frame-0 (1).png" id="5_ywikl"]
 [ext_resource type="Texture2D" uid="uid://cqvkwfev2d3qb" path="res://Assets/Tileset/Buttons/pixil-frame-0 (3).png" id="6_s1i0f"]
 [ext_resource type="PackedScene" uid="uid://bj770j1klw5cg" path="res://Scenes/Player4.tscn" id="6_vrdxy"]
-[ext_resource type="Script" path="res://Scenes/tile_manager.gd" id="11_bnccw"]
+[ext_resource type="Script" uid="uid://ocp5pfk8uw2v" path="res://Scenes/tile_manager.gd" id="11_bnccw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4jvo"]
 texture = ExtResource("1_d5ou8")
