@@ -151,6 +151,7 @@ func move_to_next_tile(delta):
 				animated_sprite.play("Idle")
 				await get_tree().create_timer(3).timeout
 				emit_signal("turn_ended")
+				GlobalVariables.minigameStart(4)
 				# Re-enable the roll button after the turn ends
 				roll_button.disabled = false
 				use_stamina_button.disabled = false

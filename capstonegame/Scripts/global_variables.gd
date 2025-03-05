@@ -1,5 +1,15 @@
 extends Node
 
+var turnNum = 0
+
+func minigameStart(turn: int) -> void:
+	if turn % 4 == 0:
+		get_tree().change_scene_to_file("res://minigames/Mash_Game_2.tscn")
+		return
+	else:
+		return #do nothing
+		
+
 #TODO Bingo cards instanstiated, Blackout tracker (?), 
 #TODO find out how to incorporate these into the game so you can use the other player models
 var p1_Model

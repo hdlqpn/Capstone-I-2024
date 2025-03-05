@@ -182,7 +182,7 @@ func _on_button_pressed():
 	# Disable the roll button to prevent spamming
 	roll_button.disabled = true
 	use_stamina_button.disabled = true
-	roll_result = 100
+	roll_result = 3
 	#roll_result = randi() % 6 + 1
 	print("Rolled: ", roll_result)
 

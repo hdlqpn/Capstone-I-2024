@@ -69,28 +69,32 @@ func _process(delta: float) -> void:
 			win_label.text = "Player 1 Wins"
 			win_label.visible = true
 			await get_tree().create_timer(5).timeout
-			get_tree().quit()
+			#get_tree().quit()
+			get_tree().change_scene_to_file("res://Scenes/Main.tscn")
 		elif is_most == 1:
 			p2_win = true
 			timer.visible = false
 			win_label.text = "Player 2 Wins"
 			win_label.visible = true
 			await get_tree().create_timer(5).timeout
-			get_tree().quit()
+			#get_tree().quit()
+			get_tree().change_scene_to_file("res://Scenes/Main.tscn")
 		elif is_most == 2:
 			p3_win = true
 			timer.visible = false
 			win_label.text = "Player 3 Wins"
 			win_label.visible = true
 			await get_tree().create_timer(5).timeout
-			get_tree().quit()
+			get_tree().change_scene_to_file("res://Scenes/Main.tscn")
+			#get_tree().quit()
 		elif is_most == 3:
 			p4_win = true
 			timer.visible = false
 			win_label.text = "Player 4 Wins"
 			win_label.visible = true
 			await get_tree().create_timer(5).timeout
-			get_tree().quit()
+			#get_tree().quit()
+			get_tree().change_scene_to_file("res://Scenes/Main.tscn")
 	
 		
 		
