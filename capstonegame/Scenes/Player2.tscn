@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://co2rh2o2ex8kn"]
 
-[ext_resource type="Script" path="res://Scripts/Player2.gd" id="1_cfefy"]
+[ext_resource type="Script" uid="uid://djlysn3q5hwyk" path="res://Scripts/Player2.gd" id="1_cfefy"]
 [ext_resource type="Texture2D" uid="uid://cxo6xbmue71xq" path="res://characters/Player_2/justaguy_2.png" id="2_4hcs5"]
 [ext_resource type="Texture2D" uid="uid://bhwbeqqwowi08" path="res://characters/Player_2/justaguyWALKIN_2.png" id="3_supt5"]
 

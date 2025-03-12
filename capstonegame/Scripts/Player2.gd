@@ -2,7 +2,7 @@ extends Node2D
 
 # Declare variables for animations, movement speed, stamina, and current state
 var animated_sprite: AnimatedSprite2D
-var current_tile: Vector2 = Vector2(-2, 0)
+var current_tile = GlobalVariables.p2_Pos
 var move_speed: float = 100.0
 var is_moving: bool = false
 var movement_path: Array = []
@@ -79,7 +79,7 @@ func _ready():
 	tilemap = get_node("/root/Main/Board/Land")
 	
 	# Initialize character's position to (0, 0)
-	position = tilemap.map_to_local(Vector2(-1, 0))
+	position = tilemap.map_to_local(current_tile)
 	
 	# Play idle animation by default
 	animated_sprite.play("Idle")
@@ -150,8 +150,9 @@ func move_to_next_tile(delta):
 				is_moving = false
 				animated_sprite.play("Idle")
 				await get_tree().create_timer(3).timeout
+				GlobalVariables.turnNum += 1
+				GlobalVariables.p2_Pos = position
 				emit_signal("turn_ended")
-				GlobalVariables.minigameStart(4)
 				# Re-enable the roll button after the turn ends
 				roll_button.disabled = false
 				use_stamina_button.disabled = false

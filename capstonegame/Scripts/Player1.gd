@@ -5,7 +5,7 @@ extends Node2D
 @onready var tile_paths = tile_manager.tile_paths  # Now correctly referencing the dictionary
 @onready var valid_tiles = tile_manager.tile_types
 var animated_sprite: AnimatedSprite2D
-var current_tile: Vector2 = Vector2(-2, 0)
+var current_tile = GlobalVariables.p1_Pos
 var move_speed: float = 100.0
 var is_moving: bool = false
 var movement_path: Array = []
@@ -32,7 +32,7 @@ func _ready():
 	tilemap = get_node("/root/Main/Board/Land")
 	
 	# Initialize character's position to (0, 0)
-	position = tilemap.map_to_local(Vector2(-2, 0))
+	position = GlobalVariables.p1_Pos
 	
 	# Play idle animation by default
 	animated_sprite.play("Idle")
@@ -118,6 +118,8 @@ func move_to_next_tile(delta):
 						if stamina < max_stamina:
 							stamina += 1
 				await get_tree().create_timer(3).timeout
+				GlobalVariables.p1_Pos = position
+				GlobalVariables.turnNum += 1
 				emit_signal("turn_ended")
 				print("Stamina", stamina)
 				# Re-enable the roll button after the turn ends

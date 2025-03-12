@@ -16,7 +16,11 @@ var p1_Model
 var p2_Model
 var p3_Model
 var p4_Model
-
+#This is set to the initial position and updated accordingly
+var p1_Pos: Vector2 = Vector2(-2, 0)
+var p2_Pos: Vector2 = Vector2(-1, 0)
+var p3_Pos: Vector2 = Vector2(0, 0)
+var p4_Pos: Vector2 = Vector2(1, 0)
 
 #Waiting to find out if these need to be arrays or ints, could also be added to the players menus 
 var p1_Inv
@@ -24,7 +28,7 @@ var p2_Inv
 var p3_Inv
 var p4_Inv 
 
-# 1-4, Used to track player positions after a minigame
+# 1-4, Used to track player places after a minigame
 #MAKE SURE TO CHANGE AT END OF GAME
 var p1_Place = 1
 var p2_Place = 2
