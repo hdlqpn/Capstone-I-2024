@@ -33,6 +33,15 @@ func pause():
 		get_tree().paused = true
 		show()
 
+# Call with Global's create_text_menu
+func debug_create_text_bubble(contents, sprite):
+	var next_message = text_window_scene.instantiate()
+	next_message.update_text(contents)
+	next_message.update_sprite(sprite)
+	next_message.process_mode = PROCESS_MODE_ALWAYS # Sets process to always because the debug menu pauses all function otherwise
+	
+	get_parent().add_child(next_message)
+
 
 ''' ---------- SIGNAL FUNCTIONS ---------- '''
 
@@ -44,10 +53,8 @@ func _on_button_pressed() -> void:
 func _on_text_button_pressed() -> void:
 	var next_message_text = $DbPanel/DbBox/DbCol/DbCol3/TextContent.text
 	
-	var next_message = text_window_scene.instantiate()
-	next_message.update_text(next_message_text)
-	next_message.process_mode = PROCESS_MODE_ALWAYS # Sets process to always because the debug menu pauses all function otherwise
-	get_parent().add_child(next_message)
+	# Doing it bad here to show how its supposed to be done elsewhere
+	GlobalVariables.create_text_bubble(next_message_text, "res://characters/Player_1/RaddicusP1.png")
 
 
 func _on_bingo_button_pressed() -> void:

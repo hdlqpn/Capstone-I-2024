@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b3g5d2e08pi7y" path="res://characters/Player_3/SpookyP3.png" id="1_fjgxf"]
 [ext_resource type="Script" uid="uid://devui611760b0" path="res://Scripts/text_window.gd" id="1_xsugl"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dy23"]
-bg_color = Color(0.119608, 0.370955, 0.571405, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bcyb"]
 
 [node name="TextWindow" type="Control"]
 custom_minimum_size = Vector2(1152, 648)
@@ -21,16 +20,6 @@ offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xsugl")
-metadata/_edit_group_ = true
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 753.0
-offset_top = 121.0
-offset_right = 1070.0
-offset_bottom = 438.0
-texture = ExtResource("1_fjgxf")
-flip_h = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -54,7 +43,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_8dy23")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/NinePatchRect/Panel"]
 layout_mode = 1
@@ -66,3 +54,19 @@ grow_vertical = 2
 text = "example text!"
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="Panel" type="Panel" parent="."]
+clip_children = 1
+layout_mode = 0
+offset_left = 783.0
+offset_top = 100.0
+offset_right = 1096.0
+offset_bottom = 325.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4bcyb")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+offset_right = 317.0
+offset_bottom = 317.0
+texture = ExtResource("1_fjgxf")
+flip_h = true

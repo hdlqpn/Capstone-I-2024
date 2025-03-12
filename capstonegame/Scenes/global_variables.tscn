@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp6fodkkilif6"]
+[gd_scene load_steps=12 format=3 uid="uid://cp6fodkkilif6"]
 
 [ext_resource type="Script" uid="uid://u75xhav0tv4i" path="res://Scripts/global_variables.gd" id="1_1edux"]
 [ext_resource type="PackedScene" uid="uid://b1clh6f6upfhw" path="res://Scenes/debug_menu.tscn" id="2_7fbg3"]
@@ -7,6 +7,46 @@
 [ext_resource type="Texture2D" uid="uid://cxo6xbmue71xq" path="res://characters/Player_2/justaguy_2.png" id="5_mqp5c"]
 [ext_resource type="Texture2D" uid="uid://sxtvq3hjog0h" path="res://characters/Player_3/justaguy_3.png" id="6_ak66h"]
 [ext_resource type="Texture2D" uid="uid://y6xy8x21k5t8" path="res://characters/Player_4/justaguy_4.png" id="7_uw1j8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpyn6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_r0388"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransitionPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p0xa5"]
+resource_name = "SceneTransition"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransitionPanel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5wafi"]
+_data = {
+&"RESET": SubResource("Animation_r0388"),
+&"scene_transition": SubResource("Animation_p0xa5")
+}
 
 [node name="Global_Variables" type="Node"]
 script = ExtResource("1_1edux")
@@ -26,6 +66,24 @@ offset_top = -200.0
 offset_right = 200.0
 offset_bottom = 200.0
 size_flags_horizontal = 4
+
+[node name="SceneTransitionPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+top_level = true
+z_index = 64
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tpyn6")
+
+[node name="SceneTransitionPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_5wafi")
+}
 
 [node name="HudCanvasLayer" type="CanvasLayer" parent="."]
 layer = 8
