@@ -55,15 +55,12 @@ text = "Quit"
 
 [node name="Game_1_ Bell" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Game 1"
-
-[node name="Game_2_Mash" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Game 2"
+text = "Bell Game
+"
 
 [node name="Game_3_Platform" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Game 3"
+text = "Platform Game"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-33, 0)
@@ -73,5 +70,4 @@ zoom = Vector2(1.5, 1.5)
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Game_1_ Bell" to="." method="_on_game_1__bell_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Game_2_Mash" to="." method="_on_game_2_bell_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Game_3_Platform" to="." method="_on_game_3_platform_pressed"]

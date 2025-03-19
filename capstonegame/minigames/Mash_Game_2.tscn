@@ -974,7 +974,7 @@ scale = Vector2(2, 2)
 position = Vector2(2116, 16)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_prif0")
-animation = &"Idle"
+animation = &"Punch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="P1/CharacterBody2D"]
 position = Vector2(2110.5, 71.6875)
@@ -984,7 +984,7 @@ shape = SubResource("RectangleShape2D_goolu")
 [node name="Hitbox_1" type="Area2D" parent="P1/CharacterBody2D" groups=["Player_1"]]
 position = Vector2(1610.5, 110.5)
 
-[node name="Hitbox_1_1" type="CollisionShape2D" parent="P1/CharacterBody2D/Hitbox_1" groups=["Player_1"]]
+[node name="Hitbox_1_1" type="CollisionShape2D" parent="P1/CharacterBody2D/Hitbox_1"]
 position = Vector2(536.5, -106)
 shape = SubResource("RectangleShape2D_x704v")
 

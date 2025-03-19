@@ -13,6 +13,8 @@ extends Node2D
 @onready var timer = $Timer
 @onready var timer_sec = $Timer/Seconds
 @onready var win_label = $Winner
+var leader: int = 0
+var leader_score: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,21 +51,20 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("player_4_punch"):
 		p4_mash_amt += 1
 	if timer_sec.text == "00:":
-		if p2_mash_amt > p1_mash_amt:
-			is_most = 1
-			if p3_mash_amt > p2_mash_amt:
-				is_most = 2
-				if p4_mash_amt > p3_mash_amt:
-					is_most = 3
-		elif p3_mash_amt > p1_mash_amt:
-			is_most = 2
-			if p4_mash_amt > p3_mash_amt:
-				is_most = 3
-		elif p4_mash_amt > p1_mash_amt:
-			is_most = 3
-		else:
-			is_most = 0
-		if is_most == 0:
+		if p1_mash_amt > leader_score:
+			leader = 1
+			leader_score = p1_mash_amt
+		if p2_mash_amt > leader_score:
+			leader = 2
+			leader_score = p3_mash_amt
+		if p3_mash_amt > leader_score:
+			leader = 3
+			leader_score = p3_mash_amt
+		if p4_mash_amt > leader_score:
+			leader = 4
+			leader_score = p4_mash_amt
+			
+		if leader == 1:
 			p1_win = true
 			timer.visible = false
 			win_label.text = "Player 1 Wins"
@@ -71,7 +72,7 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(5).timeout
 			#get_tree().quit()
 			get_tree().change_scene_to_file("res://Scenes/Main.tscn")
-		elif is_most == 1:
+		elif leader == 2:
 			p2_win = true
 			timer.visible = false
 			win_label.text = "Player 2 Wins"
@@ -79,7 +80,7 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(5).timeout
 			#get_tree().quit()
 			get_tree().change_scene_to_file("res://Scenes/Main.tscn")
-		elif is_most == 2:
+		elif leader == 3:
 			p3_win = true
 			timer.visible = false
 			win_label.text = "Player 3 Wins"
@@ -87,7 +88,7 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(5).timeout
 			get_tree().change_scene_to_file("res://Scenes/Main.tscn")
 			#get_tree().quit()
-		elif is_most == 3:
+		elif leader == 4:
 			p4_win = true
 			timer.visible = false
 			win_label.text = "Player 4 Wins"
