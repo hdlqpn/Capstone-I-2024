@@ -1,11 +1,11 @@
-extends Node2D
+extends Node2D #Player_1
 
 # Declare variables for animations, movement speed, stamina, and current state
 @onready var tile_manager = get_node("/root/Main/TileManager")
 @onready var tile_paths = tile_manager.tile_paths  # Now correctly referencing the dictionary
 @onready var valid_tiles = tile_manager.tile_types
 var animated_sprite: AnimatedSprite2D
-var current_tile: Vector2 = Vector2(-2, 0)
+var current_tile: Vector2 = Vector2(-1,0)
 var move_speed: float = 100.0
 var is_moving: bool = false
 var movement_path: Array = []
@@ -32,7 +32,7 @@ func _ready():
 	tilemap = get_node("/root/Main/Board/Land")
 	
 	# Initialize character's position to (0, 0)
-	position = tilemap.map_to_local(Vector2(-2, 0))
+	position = tilemap.map_to_local(Vector2(-1, 0))
 	
 	# Play idle animation by default
 	animated_sprite.play("Idle")
@@ -153,10 +153,10 @@ func choose_path(options: Array):
 
 #new function	
 func _create_new_path(start_tile: Vector2):
-	var steps_left = (roll_result - steps_taken) - 1 # The number of steps remaining after rolling the dice
+	var steps_left = (roll_result - steps_taken - 1) # The number of steps remaining after rolling the dice
 	var current_tile = start_tile
 	var movement_steps = [current_tile]  # Start by adding the current tile
-	while steps_left > 0:
+	while steps_left >= 0:
 		if tile_paths.has(current_tile):  # Check if there are next possible tiles
 			var next_tiles = tile_paths[current_tile]
 			var next_tile = next_tiles[0]
@@ -182,8 +182,7 @@ func _on_button_pressed():
 	# Disable the roll button to prevent spamming
 	roll_button.disabled = true
 	use_stamina_button.disabled = true
-	roll_result = 100
-	#roll_result = randi() % 6 + 1
+	roll_result = randi() % 6 + 1
 	print("Rolled: ", roll_result)
 
 	# Add stamina to roll result if spinbox is visible
