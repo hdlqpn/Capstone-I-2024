@@ -56,3 +56,20 @@ func _on_debug_menu_enable_hud() -> void:
 		$HudCanvasLayer.hide()
 	else:
 		$HudCanvasLayer.show()
+
+
+# call with contents as a string, sprite as a string reference to the asset
+func create_text_bubble(contents = "default text", sprite = "res://characters/Player_1/SpookyP1.png"):
+	$CanvasLayer/DebugMenu.debug_create_text_bubble(contents, sprite)
+
+
+# Plays the animation when changing scenes. direction_bool = true is forward, false is backward
+func play_scene_transition(direction_bool, speed_scale):
+	$CanvasLayer/SceneTransitionPlayer.set_speed_scale(speed_scale)
+	if direction_bool:
+		$CanvasLayer/SceneTransitionPanel.show()
+		$CanvasLayer/SceneTransitionPlayer.play("scene_transition")
+	else:
+		$CanvasLayer/SceneTransitionPlayer.play_backwards("scene_transition")
+		await $CanvasLayer/SceneTransitionPlayer.animation_finished
+		$CanvasLayer/SceneTransitionPanel.hide()

@@ -2,6 +2,9 @@ extends Control
 
 func _on_play_pressed() -> void:
 	AudioManager.play_audio(SoundEffects.sound_effect_name.BUTTON) #Test Sound
+	# Plays scene transition animation
+	GlobalVariables.play_scene_transition(true, 1)
+	await GlobalVariables.get_node("CanvasLayer/SceneTransitionPlayer").animation_finished
 	get_tree().change_scene_to_file("res://Scenes/Main.tscn")
 
 func _on_options_pressed() -> void:

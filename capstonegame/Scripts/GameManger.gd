@@ -5,6 +5,8 @@ var players: Array = []
 var current_player_index: int = 0
 
 func _ready():
+	GlobalVariables.play_scene_transition(false, 1)
+	
 	# Add references to all players
 	players = [
 		get_node("/root/Main/Player1"),

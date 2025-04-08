@@ -19,8 +19,10 @@ func _physics_process(delta: float) -> void:
 func update_text(new_text):
 	$MarginContainer/NinePatchRect/Panel/RichTextLabel.text = new_text
 	
+func update_sprite(sprite):
+	$Panel/TextureRect.texture = load(sprite)
+	
 # Deletes the text bubble when clicked
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			queue_free()
+	if (event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton) and event.pressed:
+		queue_free()
