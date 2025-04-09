@@ -22,8 +22,8 @@ var p1_win = false
 var p2_win = false
 var p3_win = false
 var p4_win = false
-var leader: int = 0
-var leader_score: int = 0
+var leader: int = 1 #p1 wins by default
+var leader_score: int = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
