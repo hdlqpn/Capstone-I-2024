@@ -13,6 +13,15 @@ extends Node2D
 @onready var timer = $Timer
 @onready var timer_sec = $Timer/Seconds
 @onready var win_label = $Winner
+var p1_mash_amt: int = 0
+var p2_mash_amt: int = 0
+var p3_mash_amt: int = 0
+var p4_mash_amt: int = 0
+var is_most: int = -1
+var p1_win = false
+var p2_win = false
+var p3_win = false
+var p4_win = false
 var leader: int = 0
 var leader_score: int = 0
 
@@ -31,39 +40,33 @@ func _ready() -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var p1_mash_amt: int = 0
-	var p2_mash_amt: int = 0
-	var p3_mash_amt: int = 0
-	var p4_mash_amt: int = 0
-	var is_most: int = -1
-	var p1_win = false
-	var p2_win = false
-	var p3_win = false
-	var p4_win = false
+
 	
 	#Checks input and not hitbox. Will have to change later at some point.
-	if Input.is_action_just_pressed("player_1_punch"):
-		p1_mash_amt += 1
-	if Input.is_action_just_pressed("player_2_punch"):
-		p2_mash_amt += 1
-	if Input.is_action_just_pressed("player_3_punch"):
-		p3_mash_amt += 1
-	if Input.is_action_just_pressed("player_4_punch"):
-		p4_mash_amt += 1
-	if timer_sec.text == "00:":
-		if p1_mash_amt > leader_score:
+	if(timer.visible == true):
+		if Input.is_action_just_pressed("player_1_punch"):
+			p1_mash_amt += 1
+		if Input.is_action_just_pressed("player_2_punch"):
+			p2_mash_amt += 1
+		if Input.is_action_just_pressed("player_3_punch"):
+			p3_mash_amt += 1
+		if Input.is_action_just_pressed("player_4_punch"):
+			p4_mash_amt += 1
+
+		if p1_mash_amt > (leader_score + 1):
 			leader = 1
 			leader_score = p1_mash_amt
-		if p2_mash_amt > leader_score:
+		if p2_mash_amt > (leader_score + 1):
 			leader = 2
 			leader_score = p3_mash_amt
-		if p3_mash_amt > leader_score:
+		if p3_mash_amt > (leader_score + 1):
 			leader = 3
 			leader_score = p3_mash_amt
-		if p4_mash_amt > leader_score:
+		if p4_mash_amt > (leader_score + 1):
 			leader = 4
 			leader_score = p4_mash_amt
 			
+	if(timer_sec.text == "00:"):
 		if leader == 1:
 			p1_win = true
 			timer.visible = false

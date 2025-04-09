@@ -5,7 +5,7 @@ extends Node2D #Player_4
 @onready var tile_paths = tile_manager.tile_paths  # Now correctly referencing the dictionary
 @onready var valid_tiles = tile_manager.tile_types
 var animated_sprite: AnimatedSprite2D
-var current_tile: Vector2 = Vector2(0, -1)
+var current_tile = GlobalVariables.p4_Pos
 var move_speed: float = 100.0
 var is_moving: bool = false
 var movement_path: Array = []
@@ -32,7 +32,7 @@ func _ready():
 	tilemap = get_node("/root/Main/Board/Land")
 	
 	# Initialize character's position to (0, 0)
-	position = tilemap.map_to_local(Vector2(0, -1))
+	position = current_tile
 	
 	# Play idle animation by default
 	animated_sprite.play("Idle")
